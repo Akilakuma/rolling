@@ -7,17 +7,17 @@ import (
 	"github.com/Akilakuma/rolling"
 )
 
-func bossEvent() error {
+func aEvent() error {
 	log.Println("🍐🍐this is A event🍐🍐")
 	return nil
 }
 
-func evEvent() error {
+func bEvent() error {
 	log.Println("🍊🍊this is B event🍊🍊")
 	return nil
 }
 
-func fishwave() error {
+func cEvent() error {
 	log.Println("🍋🍋this is C event🍋🍋")
 	return nil
 }
@@ -32,11 +32,11 @@ func main() {
 	// (主事件1) A
 	// start: 00:00 ~ 00:15 +-10s
 	// period: 60s
-	bossEvent1 := &rolling.Event{
+	aEvent1 := &rolling.Event{
 		Name:           "A_event",
 		Period:         15,
 		IsRepeat:       true,
-		Action:         bossEvent,
+		Action:         aEvent,
 		PNRandPlusTime: 10,
 		IsTripBegan:    true,
 	}
@@ -47,19 +47,19 @@ func main() {
 		Name:             "B_event",
 		Period:           45,
 		IsRepeat:         false,
-		Action:           evEvent,
+		Action:           bEvent,
 		PositivePlusTime: 15,
 	}
-	bossEvent1.ExtendEvent = append(bossEvent1.ExtendEvent, extend1)
+	aEvent1.ExtendEvent = append(aEvent1.ExtendEvent, extend1)
 
 	// (主事件2) A
 	// start: 02:00 ~ 03:00 +-10s
 	// period: 60s
-	bossEvent := &rolling.Event{
+	aEvent := &rolling.Event{
 		Name:           "A_event",
 		Period:         105,
 		IsRepeat:       true,
-		Action:         bossEvent,
+		Action:         aEvent,
 		PNRandPlusTime: 10,
 	}
 	// (主事件2的延伸事件) B
@@ -68,19 +68,19 @@ func main() {
 		Name:             "B_event",
 		Period:           45,
 		IsRepeat:         false,
-		Action:           evEvent,
+		Action:           bEvent,
 		PositivePlusTime: 15,
 	}
-	bossEvent.ExtendEvent = append(bossEvent.ExtendEvent, extend2)
+	aEvent.ExtendEvent = append(aEvent.ExtendEvent, extend2)
 
 	// (主事件3) C
 	// start: 04:00 ~ 05:00
 	// period: 60s
-	fishWaveEvent := &rolling.Event{
+	cEvent := &rolling.Event{
 		Name:      "C_event",
 		Period:    120,
 		IsRepeat:  true,
-		Action:    fishwave,
+		Action:    cEvent,
 		PatchTime: 120,
 	}
 
@@ -91,9 +91,9 @@ func main() {
 		Action:   nil,
 	}
 
-	eventManger.PushEvent(bossEvent1)
-	eventManger.PushEvent(bossEvent)
-	eventManger.PushEvent(fishWaveEvent)
+	eventManger.PushEvent(aEvent1)
+	eventManger.PushEvent(aEvent)
+	eventManger.PushEvent(cEvent)
 	eventManger.PushEvent(emptyEvent)
 
 	log.Println("===trip began ===")
