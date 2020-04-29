@@ -1,7 +1,6 @@
 package rolling
 
 import (
-	"math/rand"
 	"time"
 )
 
@@ -35,7 +34,6 @@ type EventManager struct {
 // o___________o__________o________o_____
 // 	 \o___o__   \__o___o____
 // 		  \o____o____
-
 
 // NewEM 新的管理器實體
 func NewEM(need bool, buffer int) *EventManager {
@@ -84,7 +82,6 @@ func newTimer(em *EventManager) (*Event, *time.Timer) {
 
 	return event, eventTimer
 }
-
 
 // Running 啟動執行
 func (em *EventManager) Running() {
