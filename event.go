@@ -25,7 +25,7 @@ type Event struct {
 	// 則在這個事件timer做-12秒的處理
 	PatchTime   int
 	ExtendEvent []*Event // 延伸事件
-	isTripBegan bool     // 是否為每個trip的起點
+	IsTripBegan bool     // 是否為每個trip的起點
 }
 
 // getPlusRangeTime 事件timer時間挑整
