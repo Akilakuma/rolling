@@ -1,4 +1,6 @@
 # rolling
-When making a game, you may create some event to give challenge to your player. 
-These events maybe sometime repeat and cycle. 
-So this timer event manager can help.
+When making a game, you may create some events to give challenges to your player. 
+
+These events maybe sometimes repeat and cycle. 
+
+So this timer event management can help.
