@@ -10,8 +10,8 @@ import (
 // 有trip的概念，多個event組合成一個trip
 // ex : 事件A，事件B，事件C
 // 一個trip 可以是 ABABC 自由搭配組合
-// 以上範例，只要在第一個A塞入時，指定isTripBegan = true
-// 頭一個事件有設isTripBegan，就會形成trip，
+// 以上範例，只要在第一個A塞入時，指定IsTripBegan = true
+// 頭一個事件有設IsTripBegan，就會形成trip，
 // 每重新執行到第一個event，trip的tripProcessingTime參數會重置
 type EventManager struct {
 	// jobQueue 是某種程度上的環狀結構概念
@@ -101,12 +101,12 @@ func (em *EventManager) Running() {
 
 			// trip 的開始
 			// trip 的經歷時間重置
-			if Event.isTripBegan {
+			if Event.IsTripBegan {
 				em.tripProcessingTime = 0
 			}
 
 			// 設置trip 經過時間
-			// 如果第一個event 沒有設isTripBegan = true
+			// 如果第一個event 沒有設IsTripBegan = true
 			// 則em.tripProcessingTime就是無限累加
 			em.setTripProcessingTime(Event.totalTime)
 
