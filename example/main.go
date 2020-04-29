@@ -26,8 +26,8 @@ func main() {
 
 	eventManger := rolling.NewEM(true, 100)
 
-	// A -> -> -> -> A -> -> -> -> C -> empty
-	// 		-> B 		 -> B
+	// A -> -> -> -> A -> -> -> -> C ->  -> empty
+	// -> B          -> B
 
 	// (主事件1) A
 	// start: 00:00 ~ 00:15 +-10s
