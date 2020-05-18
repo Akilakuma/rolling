@@ -147,7 +147,7 @@ func (em *EventManager) Close() {
 // CountDown 倒數計時
 func (em *EventManager) CountDown(t int) {
 
-	countDownPeriod := time.NewTicker(time.Duration(t))
+	countDownPeriod := time.NewTicker(time.Duration(t) * time.Second)
 
 	// 每秒+1的經過時間
 	// 不是很聰明的土方法
